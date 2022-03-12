@@ -18,3 +18,10 @@ class CandleChartModel(models.Model):
 
     class Meta:
         unique_together = (("market", 'candle_date_time_kst'),)
+
+
+class MarketTickerModel(models.Model):
+    market = models.CharField(max_length=15, primary_key=True)
+    korean_name = models.CharField(max_length=15)
+    english_name = models.CharField(max_length=15)
+
