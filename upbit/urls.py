@@ -5,5 +5,4 @@ router = DefaultRouter()
 
 
 urlpatterns = [
-    path(''),
 ]

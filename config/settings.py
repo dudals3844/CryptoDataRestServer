@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Custom Settings
     'rest_framework',
+    'upbit',
     # Default Settings
     'django.contrib.admin',
     'django.contrib.auth',

@@ -1,0 +1,11 @@
+'market': 'KRW-BTC',
+  'candle_date_time_utc': '2022-03-12T09:14:00',
+  'candle_date_time_kst': '2022-03-12T18:14:00',
+  'opening_price': 48822000.0,
+  'high_price': 48822000.0,
+  'low_price': 48803000.0,
+  'trade_price': 48803000.0,
+  'timestamp': 1647076470296,
+  'candle_acc_trade_price': 20049468.04723,
+  'candle_acc_trade_volume': 0.4107487,
+  'unit': 1
