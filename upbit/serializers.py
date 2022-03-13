@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import (
     CandleChartModel,
     MarketTickerModel,
+    TradeTickModel,
 )
 
 
@@ -15,3 +16,9 @@ class MarketTickerSerializer(serializers.ModelSerializer):
     class Meta:
         model = MarketTickerModel
         fields = '__all__'
+
+
+class TradeTickSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TradeTickModel
+        fields = "__all__"

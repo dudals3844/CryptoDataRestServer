@@ -25,3 +25,18 @@ class MarketTickerModel(models.Model):
     korean_name = models.CharField(max_length=15)
     english_name = models.CharField(max_length=15)
 
+
+class TradeTickModel(models.Model):
+    market = models.CharField(max_length=15)
+    trade_date_utc = models.CharField(max_length=15)
+    trade_time_utc = models.CharField(max_length=10)
+    timestamp = models.IntegerField()
+    trade_price = models.FloatField()
+    trade_volume = models.FloatField()
+    prev_closing_price = models.FloatField()
+    change_price = models.FloatField()
+    ask_bid = models.CharField(max_length=5)
+    sequential_id = models.IntegerField()
+
+    class Meta:
+        unique_together = (("market", "trade_date_utc", "trade_time_utc"),)
