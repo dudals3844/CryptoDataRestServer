@@ -50,6 +50,10 @@ response = session.get('http://127.0.0.1:8000/upbit/ticker/')
 ticker_df = pd.DataFrame(json.loads(response.text))
 
 for ticker in ticker_df['market']:
-    if ticker >= "BTC-ALGO":
-        print(ticker)
-        start(ticker)
+    try:
+        if ticker >= "BTC-BASIC":
+            print(ticker)
+            start(ticker)
+    except Exception as e:
+        print(f"{ticker}: {e}")
+        time.sleep(60)
