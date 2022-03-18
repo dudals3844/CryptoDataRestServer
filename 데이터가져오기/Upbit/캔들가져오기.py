@@ -30,18 +30,19 @@ def start(ticker):
         data_df = pd.concat([data_df, pd.DataFrame(response_dict)])
         time.sleep(0.1)
     data_df = data_df.drop_duplicates(subset=['candle_date_time_kst'])
-    datas = data_df.to_dict('records')
+    data_df.to_pickle(f"{ticker}.pkl")
+    # datas = data_df.to_dict('records')
 
 
-    def insert(data):
-        insert_url = 'http://127.0.0.1:8000/upbit/candle/'
-        session.post(insert_url, data=data)
-
-
-    pool = ThreadPool(processes=10)
-    pool.map(insert, tqdm(datas))
-    pool.close()
-    pool.join()
+    # def insert(data):
+    #     insert_url = 'http://127.0.0.1:8000/upbit/candle/'
+    #     session.post(insert_url, data=data)
+    #
+    #
+    # pool = ThreadPool(processes=10)
+    # pool.map(insert, tqdm(datas))
+    # pool.close()
+    # pool.join()
 #%%
 ticker_url = 'http://127.0.0.1:8000/upbit/ticker/'
 #%%
@@ -51,7 +52,7 @@ ticker_df = pd.DataFrame(json.loads(response.text))
 
 for ticker in ticker_df['market']:
     try:
-        if ticker >= "BTC-BASIC":
+        if ticker.split('-')[0] == "KRW":
             print(ticker)
             start(ticker)
     except Exception as e:
